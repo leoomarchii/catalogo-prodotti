@@ -71,21 +71,13 @@ public class CatalogController {
 
     @GetMapping("/prodotto/modifica/{id}")
     public ModelAndView editProduct(@PathVariable("id") int id) {
-        /*ModelAndView model = new ModelAndView("edit-product");
-        model.addObject("productForm", new ProductForm());
-        model.addObject("ID", 500);*/
-
         originalId = id;
 
         return new ModelAndView("edit-product").addObject("productForm", new ProductForm());
-
-        //return new ModelAndView("redirect:/prodotto/" + id);
     }
 
     @PostMapping("/prodotto/modifica/handler")
-    public ModelAndView handlerEditedProduct(@ModelAttribute ProductForm productForm/*, @ModelAttribute int ID*/) {
-        //catalogService.addProduct(productForm);
-
+    public ModelAndView handlerEditedProduct(@ModelAttribute ProductForm productForm) {
         ProductForm product = catalogService.getProductById(originalId).get();
         product.editProduct(productForm);
 
