@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+    <title>Dettaglio del prodotto</title>
+</head>
+<body>
+    <div class="col-3 my-2">
+        <div>
+            <h2><span th:text="${product.name}"></span></h2>
+        </div>
+        <div>
+            <b>Codice: </b><span th:text="${product.id}"></span>
+        </div>
+        <div>
+            <b>Categoria: </b><span th:text="${product.category}"></span>
+        </div>
+        <div>
+            <b>Anno di produzione: </b><span th:text="${product.productionYear}"></span>
+        </div>
+        <div>
+            <b>Quantità: </b><span th:text="${product.quantity}"></span>
+        </div>
+        <br>
+        <div>
+            <a class="btn btn-success" th:href="@{'/prodotto/modifica/'+${product.id}}">Modifica</a>
+            <a class="btn btn-danger" th:href="@{'/prodotto/elimina/'+${product.id}}">Elimina</a>
+            <a class="btn btn-primary" th:href="@{/catalogo}">Catalogo</a>
+        </div>
+    </div>
+</body>
+</html>
